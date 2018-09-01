@@ -39,7 +39,7 @@ class LoginPresenterImpl(private var context: Context) {
 
     fun hasLoggedUser(): Boolean {
         val account = GoogleSignIn.getLastSignedInAccount(context)
-        return account != null && account.isExpired
+        return account != null && !account.isExpired
     }
 
     fun getLoggedUser(): User? {
