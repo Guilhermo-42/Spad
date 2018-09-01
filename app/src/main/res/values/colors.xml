@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#D9751B</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- UI Pallete -->
+    <color name="orange">#D9751B</color>
+    <color name="orangeLight">#F2994A</color>
+    <color name="greenPriority">#27AE60</color>
+    <color name="yellowPriority">#FDE04B</color>
+    <color name="orangePriority">#FF8E29</color>
+    <color name="redPriority">#EB5757</color>
+    <color name="grey">#828282</color>
+
 </resources>
