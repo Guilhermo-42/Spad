@@ -3,13 +3,14 @@ package duo.com.spad.flow.login
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
+import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.SignInButton
 import duo.com.spad.App
 import duo.com.spad.R
+import duo.com.spad.flow.list.ListActivity
 import duo.com.spad.model.User
+import duo.com.spad.ui.UiLoader
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
@@ -32,6 +33,9 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
 
         loginPresenterImpl.setListener(this)
         loginPresenterImpl.configureGoogleSignIn()
+        if (loginPresenterImpl.hasLoggedUser()) {
+            updateUi(loginPresenterImpl.getLoggedUser())
+        }
 
         initializeViews()
 
@@ -49,9 +53,6 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
         startActivityForResult(intent, SIGN_IN_REQUEST_CODE)
     }
 
-    override fun userLogged(account: GoogleSignInAccount) {
-    }
-
     private fun initializeViews() {
         googleSignInButton.setSize(SignInButton.SIZE_STANDARD)
     }
@@ -62,7 +63,10 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
 
     private fun updateUi(user: User?) {
         user?.let {
-            Log.i("User logged", user.toString())
+            val bundle = Bundle()
+            bundle.putSerializable(ListActivity.USER_EXTRA, it)
+            UiLoader.goToActivityWithData(this, ListActivity::class.java, bundle)
+            finish()
         }
     }
 

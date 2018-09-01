@@ -1,7 +1,7 @@
 package duo.com.spad.model
 
-import android.net.Uri
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import java.io.Serializable
 
 /**
  * @author Guilherme
@@ -9,13 +9,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
  */
 data class User(
 
+        @Transient
         var googleSignInAccount: GoogleSignInAccount? = null
-) {
 
-    private var id: String? = null
-    private var name: String? = null
-    private var email: String? = null
-    private var photoUri: Uri? = null
+): Serializable {
+
+    var id: String? = null
+    var name: String? = null
+    var email: String? = null
+    var photoUri: String? = null
+    var type: TYPE? = null
 
     fun withGoogle(googleSignInAccount: GoogleSignInAccount?): User {
         this.googleSignInAccount = googleSignInAccount
@@ -24,10 +27,19 @@ data class User(
             id = account.id
             name = account.displayName
             email = account.email
-            photoUri = account.photoUrl
+            photoUri = account.photoUrl.toString()
+            type = TYPE.GOOGLE
         }
 
         return this
+    }
+
+    enum class TYPE {
+
+        GOOGLE,
+        FACEBOOK,
+        NONE
+
     }
 
 }

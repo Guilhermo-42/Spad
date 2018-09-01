@@ -10,9 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".flow.splash.SplashScreenActivity" />
         <activity
-            android:name=".flow.login.LoginActivity"
+            android:name=".flow.splash.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".flow.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flow.list.ListActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

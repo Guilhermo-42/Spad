@@ -37,7 +37,14 @@ class LoginPresenterImpl(private var context: Context) {
                         .build())
     }
 
-    fun hasLoggedUser(): Boolean = GoogleSignIn.getLastSignedInAccount(context) != null
+    fun hasLoggedUser(): Boolean {
+        val account = GoogleSignIn.getLastSignedInAccount(context)
+        return account != null && account.isExpired
+    }
+
+    fun getLoggedUser(): User? {
+        return User().withGoogle(GoogleSignIn.getLastSignedInAccount(context))
+    }
 
     fun trySignIn() {
         googleSignInClient?.let { client -> presenter?.trySignIn(client.signInIntent) }

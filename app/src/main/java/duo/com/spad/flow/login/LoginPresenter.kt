@@ -11,6 +11,4 @@ interface LoginPresenter {
 
     fun trySignIn(intent: Intent)
 
-    fun userLogged(account: GoogleSignInAccount)
-
 }
