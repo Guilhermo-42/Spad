@@ -21,6 +21,13 @@ allprojects {
         google()
         jcenter()
     }
+
+    project.ext {
+
+        // App dependencies
+        supportLibraryVersion = '27.1.1'
+        constraintLayoutVersion = '1.1.2'
+    }
 }
 
 task clean(type: Delete) {

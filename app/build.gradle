@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'com.google.gms.google-services'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -27,7 +29,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:$project.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$project.supportLibraryVersion"
+    implementation "com.android.support:support-media-compat:$project.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$project.constraintLayoutVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -35,12 +40,13 @@ dependencies {
 
     //Dependency injection
     implementation 'com.google.dagger:dagger:2.16'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
+    kapt 'com.google.dagger:dagger-compiler:2.16'
 
     //Ui
     implementation 'com.airbnb.android:lottie:2.6.0-beta19'
 
     //Firebase
     implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.android.gms:play-services-auth:16.0.0'
 
 }
