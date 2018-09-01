@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D9751B</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">@color/orange</color>
+    <color name="colorPrimaryDark">@color/orange</color>
     <color name="colorAccent">#FF4081</color>
 
     <!-- UI Pallete -->
