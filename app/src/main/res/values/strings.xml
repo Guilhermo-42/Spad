@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Spad</string>
+
+    <!-- Login -->
+    <string name="sign_in_fail">Error, try again!</string>
+
+    <!-- Keys -->
+    <string name="google_sign_in_client_id">81875944786-idk5rsql64mkjb3au8b413onlnjk65ps.apps.googleusercontent.com</string>
+
 </resources>

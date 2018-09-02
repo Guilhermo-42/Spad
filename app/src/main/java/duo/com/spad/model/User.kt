@@ -1,6 +1,7 @@
 package duo.com.spad.model
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.firebase.auth.FirebaseUser
 import java.io.Serializable
 
 /**
@@ -23,12 +24,19 @@ data class User(
     fun withGoogle(googleSignInAccount: GoogleSignInAccount?): User {
         this.googleSignInAccount = googleSignInAccount
 
-        googleSignInAccount?.let { account ->
-            id = account.id
-            name = account.displayName
-            email = account.email
-            photoUri = account.photoUrl.toString()
+        googleSignInAccount?.let { _ ->
             type = TYPE.GOOGLE
+        }
+
+        return this
+    }
+
+    fun withFirebase(currentUser: FirebaseUser?): User {
+        currentUser?.let {firebaseUser ->
+            this.id = firebaseUser.uid
+            this.name = firebaseUser.displayName
+            this.email = firebaseUser.email
+            this.photoUri = firebaseUser.photoUrl.toString()
         }
 
         return this

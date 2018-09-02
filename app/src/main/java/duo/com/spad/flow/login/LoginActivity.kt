@@ -3,6 +3,7 @@ package duo.com.spad.flow.login
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.SignInButton
@@ -34,7 +35,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
         loginPresenterImpl.setListener(this)
         loginPresenterImpl.configureGoogleSignIn()
         if (loginPresenterImpl.hasLoggedUser()) {
-            updateUi(loginPresenterImpl.getLoggedUser())
+            loginPresenterImpl.userLogged()
         }
 
         initializeViews()
@@ -45,7 +46,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == SIGN_IN_REQUEST_CODE) {
-            updateUi(loginPresenterImpl.handleSignInResult(GoogleSignIn.getSignedInAccountFromIntent(data)))
+            loginPresenterImpl.handleSignInResult(GoogleSignIn.getSignedInAccountFromIntent(data))
         }
     }
 
@@ -53,21 +54,34 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
         startActivityForResult(intent, SIGN_IN_REQUEST_CODE)
     }
 
+    override fun loginSuccess(user: User) {
+        user.let {
+            val bundle = Bundle()
+            bundle.putSerializable(ListActivity.USER_EXTRA, it)
+            UiLoader.goToActivityWithData(this, ListActivity::class.java, bundle)
+            finish()
+        }
+    }
+
+    override fun loginFail() {
+        Toast.makeText(this, R.string.sign_in_fail, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showLoading() {
+        loginLoadingBar.visibility = View.VISIBLE
+    }
+
+    override fun hideLoading() {
+        loginLoadingBar.visibility = View.GONE
+    }
+
+
     private fun initializeViews() {
         googleSignInButton.setSize(SignInButton.SIZE_STANDARD)
     }
 
     private fun setListeners() {
         googleSignInButton.setOnClickListener { loginPresenterImpl.trySignIn() }
-    }
-
-    private fun updateUi(user: User?) {
-        user?.let {
-            val bundle = Bundle()
-            bundle.putSerializable(ListActivity.USER_EXTRA, it)
-            UiLoader.goToActivityWithData(this, ListActivity::class.java, bundle)
-            finish()
-        }
     }
 
 }

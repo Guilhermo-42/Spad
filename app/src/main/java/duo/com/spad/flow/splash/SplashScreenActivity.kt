@@ -38,7 +38,7 @@ class SplashScreenActivity : AppCompatActivity() {
     private fun updateUi() {
         if (loginPresenterImpl.hasLoggedUser()) {
             val bundle = Bundle()
-            bundle.putSerializable(ListActivity.USER_EXTRA, loginPresenterImpl.getLoggedUser())
+            bundle.putSerializable(ListActivity.USER_EXTRA, loginPresenterImpl.getSignedInUser())
             UiLoader.goToActivityWithData(this, ListActivity::class.java, bundle)
         } else {
             UiLoader.goToActivity(this, LoginActivity::class.java)
