@@ -18,7 +18,7 @@ import javax.inject.Inject
 class LoginActivity : AppCompatActivity(), LoginPresenter {
 
     companion object {
-        private const val SIGN_IN_REQUEST_CODE = 989
+        private const val GOOGLE_SIGN_IN_REQUEST_CODE = 989
     }
 
     @Inject
@@ -45,13 +45,13 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == SIGN_IN_REQUEST_CODE) {
-            loginPresenterImpl.handleSignInResult(GoogleSignIn.getSignedInAccountFromIntent(data))
+        if (requestCode == GOOGLE_SIGN_IN_REQUEST_CODE) {
+            loginPresenterImpl.handleGoogleSignInIntent(GoogleSignIn.getSignedInAccountFromIntent(data))
         }
     }
 
     override fun trySignIn(intent: Intent) {
-        startActivityForResult(intent, SIGN_IN_REQUEST_CODE)
+        startActivityForResult(intent, GOOGLE_SIGN_IN_REQUEST_CODE)
     }
 
     override fun loginSuccess(user: User) {
@@ -81,7 +81,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
     }
 
     private fun setListeners() {
-        googleSignInButton.setOnClickListener { loginPresenterImpl.trySignIn() }
+        googleSignInButton.setOnClickListener { loginPresenterImpl.trySignInWithGoogle() }
     }
 
 }

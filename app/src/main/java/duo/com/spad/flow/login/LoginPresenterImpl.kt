@@ -47,8 +47,8 @@ class LoginPresenterImpl(private var context: Context) {
     }
 
     fun hasLoggedUser(): Boolean {
-        val account = GoogleSignIn.getLastSignedInAccount(context)
-        return account != null && !account.isExpired
+        val account = firebaseAuth.currentUser
+        return account != null
     }
 
     fun userLogged() {
@@ -57,14 +57,14 @@ class LoginPresenterImpl(private var context: Context) {
                 .withFirebase(firebaseAuth.currentUser))
     }
 
-    fun trySignIn() {
+    fun trySignInWithGoogle() {
         googleSignInClient?.let { client -> presenter?.trySignIn(client.signInIntent) }
     }
 
     fun getSignedInUser(): User = User().withGoogle(GoogleSignIn.getLastSignedInAccount(context))
             .withFirebase(firebaseAuth.currentUser)
 
-    fun handleSignInResult(accountTask: Task<GoogleSignInAccount>) {
+    fun handleGoogleSignInIntent(accountTask: Task<GoogleSignInAccount>) {
         presenter?.showLoading()
         val user: User? = User()
         try {
