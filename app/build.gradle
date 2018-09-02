@@ -17,13 +17,13 @@ android {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 3
-        versionName "0.1.1"
+        versionName "0.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         debug {
             //Fabric CI
-            ext.betaDistributionReleaseNotes="Updating versionCode"
+            ext.betaDistributionReleaseNotes="Testing new automatization"
             ext.betaDistributionEmails="renatynhaoliveira74@gmail.com, mhfgmv@gmail.com, guilhermeasrgl9@gmail.com"
             ext.betaDistributionNotifications=true
 
