@@ -23,17 +23,9 @@ android {
     }
     buildTypes {
         debug {
-            //Fabric CI
-            ext.betaDistributionReleaseNotes = "Reconfiguring firebase app"
-            ext.betaDistributionEmails = "renatynhaoliveira74@gmail.com, mhfgmv@gmail.com, guilhermeasrgl9@gmail.com"
-            ext.betaDistributionNotifications = true
 
         }
         release {
-            //Fabric CI
-            ext.betaDistributionReleaseNotes = "Release Notes for this build."
-            ext.betaDistributionEmails = "renatynhaoliveira74@gmail.com, mhfgmv@gmail.com, guilhermeasrgl9@gmail.com"
-            ext.betaDistributionNotifications = true
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
