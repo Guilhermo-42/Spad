@@ -1,7 +1,7 @@
 package duo.com.spad.flow.login
 
 import android.content.Intent
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import duo.com.spad.model.User
 
 /**
  * @author Guilherme
@@ -9,6 +9,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
  */
 interface LoginPresenter {
 
+    fun showLoading()
+
+    fun hideLoading()
+
     fun trySignIn(intent: Intent)
+
+    fun loginSuccess(user: User)
+
+    fun loginFail()
 
 }

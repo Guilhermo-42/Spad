@@ -1,9 +1,11 @@
 package duo.com.spad
 
 import android.app.Application
+import com.crashlytics.android.Crashlytics
 import duo.com.spad.di.components.DaggerPresenterComponent
 import duo.com.spad.di.components.PresenterComponent
 import duo.com.spad.di.modules.PresenterModule
+import io.fabric.sdk.android.Fabric
 
 /**
  * @author Guilherme
@@ -21,6 +23,12 @@ open class App : Application() {
         component = DaggerPresenterComponent.builder()
                 .presenterModule(PresenterModule(this))
                 .build()
+
+        initFabric()
+    }
+
+    private fun initFabric() {
+        Fabric.with(this, Crashlytics())
     }
 
 }

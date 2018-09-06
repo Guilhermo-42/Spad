@@ -8,18 +8,32 @@ apply plugin: 'com.google.gms.google-services'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'io.fabric'
+
 android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "duo.com.spad"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "0.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            //Fabric CI
+            ext.betaDistributionReleaseNotes="Testing new automatization"
+            ext.betaDistributionEmails="renatynhaoliveira74@gmail.com, mhfgmv@gmail.com, guilhermeasrgl9@gmail.com"
+            ext.betaDistributionNotifications=true
+
+        }
         release {
+            //Fabric CI
+            ext.betaDistributionReleaseNotes="Release Notes for this build."
+            ext.betaDistributionEmails="renatynhaoliveira74@gmail.com, mhfgmv@gmail.com, guilhermeasrgl9@gmail.com"
+            ext.betaDistributionNotifications=true
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -47,6 +61,12 @@ dependencies {
 
     //Firebase
     implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.firebase:firebase-auth:16.0.3'
     implementation 'com.google.android.gms:play-services-auth:16.0.0'
+
+    //Fabric
+    implementation ('com.crashlytics.sdk.android:crashlytics:2.9.5@aar') {
+        transitive = true
+    }
 
 }

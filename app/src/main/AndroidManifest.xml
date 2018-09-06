@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="duo.com.spad">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -25,6 +27,11 @@
         <activity
             android:name=".flow.list.ListActivity"
             android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="324e95c61b7e8de96b74b5af856209f6d4611049" />
+
     </application>
 
 </manifest>
