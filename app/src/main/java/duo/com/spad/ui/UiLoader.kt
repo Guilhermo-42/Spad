@@ -3,6 +3,9 @@ package duo.com.spad.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.annotation.IdRes
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 
 /**
  * @author Guilherme
@@ -20,6 +23,13 @@ class UiLoader {
             val intent = Intent(context, activity)
             intent.putExtras(bundle)
             context.startActivity(intent)
+        }
+
+        fun loadFragment(fm: FragmentManager, @IdRes frame: Int, fragment: Fragment, tag: String) {
+            fm.beginTransaction()
+                    .disallowAddToBackStack()
+                    .replace(frame, fragment, tag)
+                    .commit()
         }
 
     }

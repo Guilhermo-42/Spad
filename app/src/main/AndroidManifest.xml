@@ -33,7 +33,7 @@
             android:name=".flow.login.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flow.list.ListActivity"
+            android:name=".flow.list.ListFragment"
             android:screenOrientation="portrait" />
 
         <!-- Meta data -->

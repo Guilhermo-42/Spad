@@ -14,4 +14,9 @@
     <string name="title_list">Minha lista</string>
     <string name="title_profile">Perfil</string>
 
+    <!-- List -->
+    <string name="list_itens_counter_label">Itens</string>
+    <string name="default_meter_value">0</string>
+    <string name="filter_button_label">Filtros</string>
+
 </resources>

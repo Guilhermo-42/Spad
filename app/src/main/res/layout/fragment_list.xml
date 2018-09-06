@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".flow.list.ListFragment">
+
+    <TextView
+        android:id="@+id/listItemMeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/list_itens_counter_label"
+        android:textColor="@color/orangeGrey"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/meterBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/orange_square"
+        app:layout_constraintBottom_toBottomOf="@id/listItemMeter"
+        app:layout_constraintStart_toEndOf="@id/listItemMeter"
+        app:layout_constraintTop_toTopOf="@id/listItemMeter" />
+
+    <TextView
+        android:id="@+id/itemMeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_meter_value"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/meterBackground"
+        app:layout_constraintEnd_toEndOf="@id/meterBackground"
+        app:layout_constraintStart_toStartOf="@id/meterBackground"
+        app:layout_constraintTop_toTopOf="@id/meterBackground" />
+
+    <ImageView
+        android:id="@+id/filterImage"
+        android:layout_width="18dp"
+        android:layout_height="24dp"
+        android:src="@drawable/icon_arrow_filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/filterTextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:text="@string/filter_button_label"
+        android:textColor="@color/orangeGrey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/filterImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/listScreenFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/icon_add_item"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/itemsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listItemMeter"
+        tools:listitem="@layout/list_item" />
+
+</android.support.constraint.ConstraintLayout>

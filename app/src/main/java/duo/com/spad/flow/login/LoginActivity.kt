@@ -9,7 +9,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.SignInButton
 import duo.com.spad.App
 import duo.com.spad.R
-import duo.com.spad.flow.list.ListActivity
 import duo.com.spad.flow.main.MainFlowActivity
 import duo.com.spad.model.User
 import duo.com.spad.ui.UiLoader
@@ -58,7 +57,6 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
     override fun loginSuccess(user: User) {
         user.let {
             val bundle = Bundle()
-            bundle.putSerializable(ListActivity.USER_EXTRA, it)
             UiLoader.goToActivityWithData(this, MainFlowActivity::class.java, bundle)
             finish()
         }
