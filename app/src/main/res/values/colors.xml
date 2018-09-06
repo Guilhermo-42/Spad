@@ -13,4 +13,7 @@
     <color name="redPriority">#EB5757</color>
     <color name="grey">#828282</color>
 
+    <!-- Bottom navigation -->
+    <color name="bottomNavBackground">#F2994A</color>
+
 </resources>

@@ -7,4 +7,11 @@
     <!-- Keys -->
     <string name="google_sign_in_client_id">81875944786-idk5rsql64mkjb3au8b413onlnjk65ps.apps.googleusercontent.com</string>
 
+    <!-- Title -->
+    <string name="title_activity_main_flow">MainFlowActivity</string>
+
+    <!-- Navigation -->
+    <string name="title_list">Minha lista</string>
+    <string name="title_profile">Perfil</string>
+
 </resources>

@@ -10,6 +10,7 @@ import com.google.android.gms.common.SignInButton
 import duo.com.spad.App
 import duo.com.spad.R
 import duo.com.spad.flow.list.ListActivity
+import duo.com.spad.flow.main.MainFlowActivity
 import duo.com.spad.model.User
 import duo.com.spad.ui.UiLoader
 import kotlinx.android.synthetic.main.activity_login.*
@@ -58,7 +59,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
         user.let {
             val bundle = Bundle()
             bundle.putSerializable(ListActivity.USER_EXTRA, it)
-            UiLoader.goToActivityWithData(this, ListActivity::class.java, bundle)
+            UiLoader.goToActivityWithData(this, MainFlowActivity::class.java, bundle)
             finish()
         }
     }
