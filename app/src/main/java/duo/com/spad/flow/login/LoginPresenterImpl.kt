@@ -40,7 +40,7 @@ class LoginPresenterImpl(private var context: Context) {
     fun configureGoogleSignIn() {
         googleSignInClient = GoogleSignIn.getClient(context,
                 GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken(context.getString(R.string.google_sign_in_client_id))
+                        .requestIdToken(context.getString(R.string.google_client_id))
                         .requestEmail()
                         .build())
     }
