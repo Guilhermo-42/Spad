@@ -16,7 +16,7 @@ android {
         applicationId "duo.com.spad"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 3
+        versionCode 4
         versionName "0.1.21"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
