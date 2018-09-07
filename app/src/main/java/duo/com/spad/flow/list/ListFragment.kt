@@ -7,8 +7,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.firestore.FirebaseFirestore
 import duo.com.spad.R
 import duo.com.spad.model.ListItem
+import duo.com.spad.model.User
+import duo.com.spad.model.database.DatabaseUser
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : Fragment() {
@@ -31,12 +34,39 @@ class ListFragment : Fragment() {
         filterImage.setColorFilter(ContextCompat.getColor(requireContext(), R.color.orange))
 
         setupList()
-        test()
+        //test()
+
+        setListeners()
+    }
+
+    private fun setListeners() {
+        listScreenFab.setOnClickListener {  }
     }
 
     private fun setupList() {
         itemsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         itemsRecyclerView.adapter = adapter
+    }
+
+
+    // Test methods
+    private fun addTest() {
+        val user = User()
+        user.name = "guilherme"
+        user.email = "guilhermeasrgl9@gmail.com"
+        user.type = User.TYPE.GOOGLE
+        user.id = "1"
+
+        val firestore = FirebaseFirestore.getInstance()
+
+        user.email?.let {
+            firestore.collection("users")
+                    .document(it)
+                    .set(DatabaseUser)
+        }
+        firestore.collection("users").get().addOnSuccessListener {
+            it
+        }
     }
 
     private fun test() {

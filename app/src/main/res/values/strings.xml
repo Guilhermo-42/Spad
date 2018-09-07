@@ -18,5 +18,6 @@
     <string name="list_itens_counter_label">Itens</string>
     <string name="default_meter_value">0</string>
     <string name="filter_button_label">Filtros</string>
+    <string name="list_empty_state">Nenhum item\n na sua lista</string>
 
 </resources>

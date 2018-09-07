@@ -18,6 +18,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/emptyStateMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:minLines="2"
+        android:text="@string/list_empty_state"
+        android:textAlignment="center"
+        android:textColor="#D2D2D2"
+        android:textSize="21sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listItemMeter" />
+
     <ImageView
         android:id="@+id/meterBackground"
         android:layout_width="wrap_content"

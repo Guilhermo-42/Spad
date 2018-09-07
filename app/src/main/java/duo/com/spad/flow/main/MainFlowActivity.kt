@@ -13,7 +13,7 @@ class MainFlowActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_list -> {
-                UiLoader.loadFragment(supportFragmentManager, R.id.mainContainer, ListFragment.newInstance(), ListFragment.TAG)
+                setupListFragment()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
@@ -27,6 +27,12 @@ class MainFlowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_flow)
 
+        setupListFragment()
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    private fun setupListFragment() {
+        UiLoader.loadFragment(supportFragmentManager, R.id.mainContainer, ListFragment.newInstance(), ListFragment.TAG)
     }
 }
