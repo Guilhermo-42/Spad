@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:padding="16dp"
+    tools:background="#000"
+    tools:context=".flow.list.add.AddItemActivity">
+
+    <ImageView
+        android:id="@+id/addItemBackButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow_return"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addItemLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:text="@string/new_iem_label"
+        android:textColor="@color/orangeGrey"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/addItemBackButton"
+        app:layout_constraintStart_toEndOf="@id/addItemBackButton"
+        app:layout_constraintTop_toTopOf="@id/addItemBackButton" />
+
+    <ImageView
+        android:id="@+id/addItemSave"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_confirm"
+        app:layout_constraintBottom_toBottomOf="@id/addItemLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/addItemLabel" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/titleInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:hint="@string/title_hint"
+        android:textColorHint="@color/hintTextColor"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/addItemLabel">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/titleInputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="#000" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/descriptionInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/description_hint"
+        android:textColorHint="@color/hintTextColor"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/priorityLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleInputLayout">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/descriptionInputText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textColor="#000" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/priorityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="@string/priority_label"
+        android:textColor="#828282"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/priorityGroup" />
+
+    <TextView
+        android:id="@+id/priorityError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/priority_error_hint"
+        android:textColor="@color/redPriority"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/priorityLabel"
+        app:layout_constraintStart_toEndOf="@id/priorityLabel"
+        app:layout_constraintTop_toTopOf="@id/priorityLabel" />
+
+    <RadioGroup
+        android:id="@+id/priorityGroup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- TODO remove all bg after icons are done -->
+        <RadioButton
+            android:id="@+id/lowPriorityToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/priority_bg"
+            android:text="@string/low_priority"
+            android:textAlignment="center"
+            android:textColor="@color/priorityTextColor" />
+
+        <RadioButton
+            android:id="@+id/mediumPriorityToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/priority_bg"
+            android:text="@string/medium_priority"
+            android:textAlignment="center"
+            android:textColor="@color/priorityTextColor" />
+
+        <RadioButton
+            android:id="@+id/highPriorityToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/priority_bg"
+            android:text="@string/high_priority"
+            android:textAlignment="center"
+            android:textColor="@color/priorityTextColor" />
+
+        <RadioButton
+            android:id="@+id/urgentPriorityToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/priority_bg"
+            android:text="@string/urgent_priority"
+            android:textAlignment="center"
+            android:textColor="@color/priorityTextColor" />
+
+    </RadioGroup>
+
+</android.support.constraint.ConstraintLayout>

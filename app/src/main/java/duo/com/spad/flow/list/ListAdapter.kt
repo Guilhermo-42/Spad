@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import duo.com.spad.R
 import duo.com.spad.model.ListItem
+import duo.com.spad.model.Priority
 import kotlinx.android.synthetic.main.list_item.view.*
 import java.util.*
 
@@ -36,31 +37,31 @@ class ListAdapter(
 
         holder.title.text = item.title
         holder.description.text = item.description
-        item.image?.let { holder.image.setImageResource(it) }
+        item.category?.image?.let { holder.image.setImageResource(it) }
 
         when (item.priority) {
-            ListItem.Priority.LOW -> {
+            Priority.LOW -> {
                 val greenColor = ContextCompat.getColor(context, R.color.greenPriority)
                 holder.title.setTextColor(greenColor)
                 holder.description.setTextColor(greenColor)
                 holder.image.setColorFilter(greenColor, PorterDuff.Mode.MULTIPLY)
                 holder.bordersBackground.setColorFilter(greenColor, PorterDuff.Mode.MULTIPLY)
             }
-            ListItem.Priority.MEDIUM -> {
+            Priority.MEDIUM -> {
                 val yellowColor = ContextCompat.getColor(context, R.color.yellowPriority)
                 holder.title.setTextColor(yellowColor)
                 holder.description.setTextColor(yellowColor)
                 holder.image.setColorFilter(yellowColor, PorterDuff.Mode.MULTIPLY)
                 holder.bordersBackground.setColorFilter(yellowColor, PorterDuff.Mode.MULTIPLY)
             }
-            ListItem.Priority.HIGH -> {
+            Priority.HIGH -> {
                 val orangeColor = ContextCompat.getColor(context, R.color.orangePriority)
                 holder.title.setTextColor(orangeColor)
                 holder.description.setTextColor(orangeColor)
                 holder.image.setColorFilter(orangeColor, PorterDuff.Mode.MULTIPLY)
                 holder.bordersBackground.setColorFilter(orangeColor, PorterDuff.Mode.MULTIPLY)
             }
-            ListItem.Priority.URGENT -> {
+            Priority.URGENT -> {
                 val redColor = ContextCompat.getColor(context, R.color.redPriority)
                 holder.title.setTextColor(redColor)
                 holder.description.setTextColor(redColor)

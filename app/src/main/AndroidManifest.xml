@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".flow.splash.SplashScreenActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,15 +27,20 @@
         <activity
             android:name=".flow.main.MainFlowActivity"
             android:label="@string/title_activity_main_flow"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
+        <!-- Login Activity -->
         <activity
             android:name=".flow.login.LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <!-- Add Item Activity -->
         <activity
-            android:name=".flow.list.ListFragment"
-            android:screenOrientation="portrait" />
+            android:name=".flow.list.add.AddItemActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <!-- Meta data -->
 

@@ -25,9 +25,12 @@ class UiLoader {
             context.startActivity(intent)
         }
 
-        fun loadFragment(fm: FragmentManager, @IdRes frame: Int, fragment: Fragment, tag: String) {
+        fun loadFragmentNoBackstack(fm: FragmentManager, @IdRes frame: Int, fragment: Fragment, tag: String) {
+            if (fm.findFragmentByTag(tag) != null) {
+                fm.popBackStack()
+            }
+
             fm.beginTransaction()
-                    .disallowAddToBackStack()
                     .replace(frame, fragment, tag)
                     .commit()
         }

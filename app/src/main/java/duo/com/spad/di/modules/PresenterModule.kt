@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import duo.com.spad.App
+import duo.com.spad.flow.list.add.AddItemPresenterImpl
 import duo.com.spad.flow.login.LoginPresenterImpl
 import javax.inject.Singleton
 
@@ -23,5 +23,8 @@ class PresenterModule(private val application: Application) {
 
     @Provides
     fun providesLoginPresenter(context: Context): LoginPresenterImpl = LoginPresenterImpl(context)
+
+    @Provides
+    fun providesAddItemPresenter(context: Context): AddItemPresenterImpl = AddItemPresenterImpl(context)
 
 }

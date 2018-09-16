@@ -33,6 +33,7 @@ class MainFlowActivity : AppCompatActivity() {
     }
 
     private fun setupListFragment() {
-        UiLoader.loadFragment(supportFragmentManager, R.id.mainContainer, ListFragment.newInstance(), ListFragment.TAG)
+        UiLoader.loadFragmentNoBackstack(supportFragmentManager, R.id.mainContainer, ListFragment.newInstance(), ListFragment.TAG)
     }
+
 }

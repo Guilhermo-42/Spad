@@ -1,6 +1,5 @@
 package duo.com.spad.model
 
-import android.support.annotation.DrawableRes
 import java.io.Serializable
 
 /**
@@ -15,16 +14,10 @@ class ListItem : Serializable {
 
     var priority: Priority? = null
 
-    @DrawableRes
-    var image: Int? = null
+    var category: Category? = null
 
-    enum class Priority {
-
-        LOW,
-        MEDIUM,
-        HIGH,
-        URGENT
-
+    fun isValidWithoutCategory(): Boolean {
+        return !title.isNullOrEmpty() && !description.isNullOrEmpty() && priority != null
     }
 
 }

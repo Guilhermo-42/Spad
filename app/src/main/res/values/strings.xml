@@ -20,4 +20,17 @@
     <string name="filter_button_label">Filtros</string>
     <string name="list_empty_state">Nenhum item\n na sua lista</string>
 
+    <!-- Add item -->
+    <string name="new_iem_label">Novo item</string>
+    <string name="title_hint">Título</string>
+    <string name="description_hint">Descrição</string>
+    <string name="priority_label">Prioridade</string>
+    <string name="low_priority">Baixa</string>
+    <string name="medium_priority">Média</string>
+    <string name="high_priority">Alta</string>
+    <string name="urgent_priority">Urgente</string>
+    <string name="title_error_hint">Campo obrigatório!</string>
+    <string name="description_error_hint">Campo obrigatório!</string>
+    <string name="priority_error_hint">Campo obrigatório!</string>
+
 </resources>
