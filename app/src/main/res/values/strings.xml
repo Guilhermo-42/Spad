@@ -33,6 +33,8 @@
     <string name="description_error_hint">Campo obrigatório!</string>
     <string name="priority_error_hint">Campo obrigatório!</string>
     <string name="error_loading_notes">Erro ao carregar suas notas!</string>
-    <string name="title_activity_choose_category">ChooseCategoryActivity</string>
+
+    <!-- Category -->
+    <string name="category">Categoria</string>
 
 </resources>

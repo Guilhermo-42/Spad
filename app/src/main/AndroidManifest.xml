@@ -45,9 +45,8 @@
         <!-- Choose Category Activity -->
         <activity
             android:name=".flow.category.ChooseCategoryActivity"
-            android:label="@string/title_activity_choose_category"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <!-- Meta data -->
 
