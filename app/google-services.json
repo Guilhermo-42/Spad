@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "81875944786",
-    "firebase_url": "https://spad-1bdd0.firebaseio.com",
-    "project_id": "spad-1bdd0",
-    "storage_bucket": "spad-1bdd0.appspot.com"
+    "project_number": "261794809707",
+    "firebase_url": "https://spad-duo.firebaseio.com",
+    "project_id": "spad-duo",
+    "storage_bucket": "spad-duo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:81875944786:android:ca56889c5c8d3fa7",
+        "mobilesdk_app_id": "1:261794809707:android:ca56889c5c8d3fa7",
         "android_client_info": {
           "package_name": "duo.com.spad"
         }
       },
       "oauth_client": [
         {
-          "client_id": "81875944786-a0lns6ktr51vofd2uj0uoqcv3fkn0ai1.apps.googleusercontent.com",
+          "client_id": "261794809707-f3l6g6d2cqdjkre4pf2h2vua7io4luiv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "duo.com.spad",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "81875944786-idk5rsql64mkjb3au8b413onlnjk65ps.apps.googleusercontent.com",
+          "client_id": "261794809707-n3m13ilr40hvc5bhjqfkubureotgd0s1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCU8vsWOHBryCDmXekq5quB5PX8ulQHDe0"
+          "current_key": "AIzaSyA8UcZEFtaXumnKkSFgyVNwIBNPmPVTX_k"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "81875944786-idk5rsql64mkjb3au8b413onlnjk65ps.apps.googleusercontent.com",
+              "client_id": "261794809707-n3m13ilr40hvc5bhjqfkubureotgd0s1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

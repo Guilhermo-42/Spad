@@ -1,6 +1,6 @@
 package duo.com.spad
 
-import android.app.Application
+import android.support.multidex.MultiDexApplication
 import com.crashlytics.android.Crashlytics
 import duo.com.spad.di.components.DaggerPresenterComponent
 import duo.com.spad.di.components.PresenterComponent
@@ -11,7 +11,7 @@ import io.fabric.sdk.android.Fabric
  * @author Guilherme
  * @since 01/09/2018
  */
-open class App : Application() {
+open class App : MultiDexApplication() {
 
     companion object {
         private lateinit var component: PresenterComponent

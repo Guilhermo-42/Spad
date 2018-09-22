@@ -12,5 +12,13 @@
     <color name="orangePriority">#FF8E29</color>
     <color name="redPriority">#EB5757</color>
     <color name="grey">#828282</color>
+    
+    <!-- App -->
+    <color name="orangeGrey">#F2994A</color>
+    <color name="priorityTextColor">#4F4F4F</color>
+    <color name="hintTextColor">#828282</color>
+
+    <!-- Bottom navigation -->
+    <color name="bottomNavBackground">@color/orangeGrey</color>
 
 </resources>

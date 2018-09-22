@@ -5,9 +5,9 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import duo.com.spad.App
 import duo.com.spad.R
-import duo.com.spad.flow.list.ListActivity
 import duo.com.spad.flow.login.LoginActivity
 import duo.com.spad.flow.login.LoginPresenterImpl
+import duo.com.spad.flow.main.MainFlowActivity
 import duo.com.spad.ui.UiLoader
 import javax.inject.Inject
 
@@ -38,8 +38,7 @@ class SplashScreenActivity : AppCompatActivity() {
     private fun updateUi() {
         if (loginPresenterImpl.hasLoggedUser()) {
             val bundle = Bundle()
-            bundle.putSerializable(ListActivity.USER_EXTRA, loginPresenterImpl.getSignedInUser())
-            UiLoader.goToActivityWithData(this, ListActivity::class.java, bundle)
+            UiLoader.goToActivityWithData(this, MainFlowActivity::class.java, bundle)
         } else {
             UiLoader.goToActivity(this, LoginActivity::class.java)
         }

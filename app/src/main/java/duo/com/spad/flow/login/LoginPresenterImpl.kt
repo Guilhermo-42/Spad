@@ -10,8 +10,14 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import duo.com.spad.R
 import duo.com.spad.model.User
+import duo.com.spad.model.database.DatabaseUser
+import duo.com.spad.model.note.Category
+import duo.com.spad.model.note.Note
+import duo.com.spad.model.note.Priority
+import duo.com.spad.network.DatabaseCollections
 
 /**
  * Presenter class for LoginActivity.
@@ -40,7 +46,7 @@ class LoginPresenterImpl(private var context: Context) {
     fun configureGoogleSignIn() {
         googleSignInClient = GoogleSignIn.getClient(context,
                 GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken(context.getString(R.string.google_sign_in_client_id))
+                        .requestIdToken(context.getString(R.string.google_client_id))
                         .requestEmail()
                         .build())
     }
@@ -84,6 +90,7 @@ class LoginPresenterImpl(private var context: Context) {
                 .addOnCompleteListener { result ->
                     if (result.isSuccessful) {
                         user.withFirebase(firebaseAuth.currentUser)
+                        saveUserToDatabase(user)
                         presenter?.loginSuccess(user)
                         presenter?.hideLoading()
                     } else {
@@ -93,6 +100,15 @@ class LoginPresenterImpl(private var context: Context) {
                         presenter?.hideLoading()
                     }
                 }
+    }
+
+    private fun saveUserToDatabase(user: User) {
+        val database = FirebaseFirestore.getInstance()
+        user.email?.let {
+            database.collection(DatabaseCollections.USERS.description)
+                .document(it)
+                    .set(DatabaseUser.withUser(user))
+        }
     }
 
     private fun getGoogleCredential(googleSignInAccount: GoogleSignInAccount) =

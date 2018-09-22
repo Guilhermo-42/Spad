@@ -5,6 +5,46 @@
     <string name="sign_in_fail">Error, try again!</string>
 
     <!-- Keys -->
-    <string name="google_sign_in_client_id">81875944786-idk5rsql64mkjb3au8b413onlnjk65ps.apps.googleusercontent.com</string>
+    <string name="google_client_id">261794809707-n3m13ilr40hvc5bhjqfkubureotgd0s1.apps.googleusercontent.com</string>
+
+    <!-- Title -->
+    <string name="title_activity_main_flow">MainFlowActivity</string>
+
+    <!-- Navigation -->
+    <string name="title_list">Minha lista</string>
+    <string name="title_profile">Perfil</string>
+
+    <!-- List -->
+    <string name="list_itens_counter_label">Itens</string>
+    <string name="default_meter_value">0</string>
+    <string name="filter_button_label">Filtros</string>
+    <string name="list_empty_state">Nenhum item\n na sua lista</string>
+
+    <!-- Add item -->
+    <string name="new_item_label">Novo item</string>
+    <string name="title_hint">Título</string>
+    <string name="description_hint">Descrição</string>
+    <string name="priority_label">Prioridade</string>
+    <string name="low_priority">Baixa</string>
+    <string name="medium_priority">Média</string>
+    <string name="high_priority">Alta</string>
+    <string name="urgent_priority">Urgente</string>
+    <string name="title_error_hint">Campo obrigatório!</string>
+    <string name="description_error_hint">Campo obrigatório!</string>
+    <string name="priority_error_hint">Campo obrigatório!</string>
+    <string name="error_loading_notes">Erro ao carregar suas notas!</string>
+
+    <!-- Category -->
+    <string name="category">Categoria</string>
+    <string name="new_category_label">Nova categoria</string>
+    <string name="default_category_home">Casa</string>
+    <string name="default_category_recreation">Lazer</string>
+    <string name="default_category_work">Trabalho</string>
+    <string name="default_category_sports">Esporte</string>
+    <string name="default_category_trip">Viagem</string>
+    <string name="default_category_family">Família</string>
+    <string name="default_category_food">Comida</string>
+    <string name="category_needed">Selecione uma categoria</string>
+    <string name="category_save_failed">Erro, tente novamente!</string>
 
 </resources>
