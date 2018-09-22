@@ -77,10 +77,7 @@ class LoginPresenterImpl(private var context: Context) {
             user?.withGoogle(account)
             user?.let { authWithFirebase(account, it) }
         } catch (exception: ApiException) {
-            googleSignInClient?.signOut()
-            firebaseAuth.signOut()
-            presenter?.loginFail()
-            presenter?.hideLoading()
+            loginFailed()
             Log.e(EXCEPTION_TAG, exception.statusCode.toString())
         }
     }
@@ -90,24 +87,54 @@ class LoginPresenterImpl(private var context: Context) {
                 .addOnCompleteListener { result ->
                     if (result.isSuccessful) {
                         user.withFirebase(firebaseAuth.currentUser)
-                        saveUserToDatabase(user)
-                        presenter?.loginSuccess(user)
+                        verifyShouldSaveUser(user)
                         presenter?.hideLoading()
                     } else {
-                        googleSignInClient?.signOut()
-                        firebaseAuth.signOut()
-                        presenter?.loginFail()
-                        presenter?.hideLoading()
+                        loginFailed()
                     }
                 }
+    }
+
+    private fun loginFailed() {
+        googleSignInClient?.signOut()
+        firebaseAuth.signOut()
+        presenter?.loginFail()
+        presenter?.hideLoading()
+    }
+
+    private fun verifyShouldSaveUser(user: User) {
+        user.email?.let {
+            FirebaseFirestore.getInstance()
+                    .collection(DatabaseCollections.USERS.description)
+                    .document(it)
+                    .get()
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            if (task.result.exists()) {
+                                presenter?.loginSuccess(user)
+                            } else {
+                                saveUserToDatabase(user)
+                            }
+                        } else {
+                            loginFailed()
+                        }
+                    }
+        }
     }
 
     private fun saveUserToDatabase(user: User) {
         val database = FirebaseFirestore.getInstance()
         user.email?.let {
             database.collection(DatabaseCollections.USERS.description)
-                .document(it)
+                    .document(it)
                     .set(DatabaseUser.withUser(user))
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            presenter?.loginSuccess(user)
+                        } else {
+                            loginFailed()
+                        }
+                    }
         }
     }
 
