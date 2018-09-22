@@ -9,6 +9,7 @@
     tools:background="#000"
     tools:context=".flow.list.add.AddItemActivity">
 
+    <!-- TODO Remove default size -->
     <ImageView
         android:id="@+id/addItemBackButton"
         android:layout_width="24dp"
@@ -30,6 +31,7 @@
         app:layout_constraintStart_toEndOf="@id/addItemBackButton"
         app:layout_constraintTop_toTopOf="@id/addItemBackButton" />
 
+    <!-- TODO Remove default size -->
     <ImageView
         android:id="@+id/addItemSave"
         android:layout_width="24dp"

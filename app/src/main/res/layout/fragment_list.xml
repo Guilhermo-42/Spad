@@ -57,11 +57,12 @@
         app:layout_constraintStart_toStartOf="@id/meterBackground"
         app:layout_constraintTop_toTopOf="@id/meterBackground" />
 
+    <!-- TODO Remove default size -->
     <ImageView
         android:id="@+id/filterImage"
         android:layout_width="18dp"
         android:layout_height="24dp"
-        android:src="@drawable/icon_arrow_filter"
+        android:src="@drawable/ic_arrow_filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,7 +85,7 @@
         android:layout_margin="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/icon_add_item"
+        android:src="@drawable/ic_add_item"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

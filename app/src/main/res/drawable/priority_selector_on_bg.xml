@@ -13,11 +13,12 @@
         </shape>
     </item>
 
+    <!-- TODO Delete this file -->
     <item
         android:id="@+id/drawable"
         android:width="8dp"
         android:height="8dp"
-        android:drawable="@drawable/icon_confirm"
+        android:drawable="@drawable/ic_confirm"
         android:gravity="center" />
 
 </layer-list>

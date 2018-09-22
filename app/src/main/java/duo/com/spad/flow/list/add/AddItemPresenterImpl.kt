@@ -1,6 +1,5 @@
 package duo.com.spad.flow.list.add
 
-import android.content.Context
 import duo.com.spad.model.ListItem
 import duo.com.spad.model.Priority
 
@@ -8,9 +7,15 @@ import duo.com.spad.model.Priority
  * @author Guilherme
  * @since 08/09/2018
  */
-class AddItemPresenterImpl(var presenter: AddItemPresenter) {
+class AddItemPresenterImpl {
 
-    private var model: ListItem = ListItem()
+    var model: ListItem = ListItem()
+
+    private var presenter: AddItemPresenter? = null
+
+    fun updatePresenter(presenter: AddItemPresenter) {
+        this.presenter = presenter
+    }
 
     fun onPriorityClicked(priority: Priority) {
         model.priority = priority
@@ -21,20 +26,20 @@ class AddItemPresenterImpl(var presenter: AddItemPresenter) {
         model.description = description
 
         if (model.isValidWithoutCategory()) {
-            presenter.onSaveClicked()
+            presenter?.onSaveClicked()
             return
         }
 
         if (model.priority == null) {
-            presenter.onPriorityNotSetted()
+            presenter?.onPriorityNotSetted()
         }
 
         if (model.description.isNullOrEmpty()) {
-            presenter.onDescriptionNotSetted()
+            presenter?.onDescriptionNotSetted()
         }
 
         if (model.title.isNullOrEmpty()) {
-            presenter.onTitleNotSetted()
+            presenter?.onTitleNotSetted()
         }
 
     }

@@ -25,6 +25,6 @@ class PresenterModule(private val application: Application) {
     fun providesLoginPresenter(context: Context): LoginPresenterImpl = LoginPresenterImpl(context)
 
     @Provides
-    fun providesAddItemPresenter(context: Context): AddItemPresenterImpl = AddItemPresenterImpl(context)
+    fun providesAddItemPresenter(): AddItemPresenterImpl = AddItemPresenterImpl()
 
 }

@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import duo.com.spad.App
 import duo.com.spad.R
+import duo.com.spad.flow.category.ChooseCategoryActivity
 import duo.com.spad.model.Priority
+import duo.com.spad.ui.UiLoader
 import kotlinx.android.synthetic.main.activity_add_item.*
 import javax.inject.Inject
 
@@ -23,6 +25,8 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_item)
+
+        presenter.updatePresenter(this)
 
         setupViews()
 
@@ -50,7 +54,9 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
     }
 
     override fun onSaveClicked() {
-        //TODO Go to set category activity
+        val bundle = Bundle()
+        bundle.putSerializable(ChooseCategoryActivity.LIST_ITEM, presenter.model)
+        UiLoader.goToActivityWithData(this, ChooseCategoryActivity::class.java, bundle)
     }
 
     private fun setListeners() {
@@ -77,9 +83,11 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
             }
         }
 
-        addItemSave.setOnClickListener { presenter.onSaveClicked(
-                titleInputText.text?.toString(),
-                descriptionInputText.text?.toString()) }
+        addItemSave.setOnClickListener {
+            presenter.onSaveClicked(
+                    titleInputText.text?.toString(),
+                    descriptionInputText.text?.toString())
+        }
     }
 
     private fun setupViews() {
