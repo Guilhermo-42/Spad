@@ -6,6 +6,7 @@
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/misc.xml
+/app/google-services.json
 .DS_Store
 /build
 /captures
