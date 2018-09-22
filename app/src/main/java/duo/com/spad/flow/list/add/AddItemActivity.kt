@@ -55,7 +55,7 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
 
     override fun onSaveClicked() {
         val bundle = Bundle()
-        bundle.putSerializable(ChooseCategoryActivity.LIST_ITEM, presenter.model)
+        bundle.putSerializable(ChooseCategoryActivity.NOTE, presenter.model)
         UiLoader.goToActivityWithData(this, ChooseCategoryActivity::class.java, bundle)
     }
 

@@ -42,13 +42,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
+        <!-- Choose Category Activity -->
+        <activity
+            android:name=".flow.category.ChooseCategoryActivity"
+            android:label="@string/title_activity_choose_category"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" />
+
         <!-- Meta data -->
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="324e95c61b7e8de96b74b5af856209f6d4611049" />
-
-        <activity android:name=".flow.category.ChooseCategoryActivity"></activity>
     </application>
 
 </manifest>
