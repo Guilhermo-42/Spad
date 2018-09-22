@@ -36,5 +36,15 @@
 
     <!-- Category -->
     <string name="category">Categoria</string>
+    <string name="new_category_label">Nova categoria</string>
+    <string name="default_category_home">Casa</string>
+    <string name="default_category_recreation">Lazer</string>
+    <string name="default_category_work">Trabalho</string>
+    <string name="default_category_sports">Esporte</string>
+    <string name="default_category_trip">Viagem</string>
+    <string name="default_category_family">Família</string>
+    <string name="default_category_food">Comida</string>
+    <string name="category_needed">Selecione uma categoria</string>
+    <string name="category_save_failed">Erro, tente novamente!</string>
 
 </resources>

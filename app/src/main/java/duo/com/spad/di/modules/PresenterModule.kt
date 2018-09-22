@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import duo.com.spad.flow.category.ChooseCategoryPresenterImpl
 import duo.com.spad.flow.list.ListPresenterImpl
 import duo.com.spad.flow.list.add.AddItemPresenterImpl
 import duo.com.spad.flow.login.LoginPresenterImpl
@@ -30,5 +31,8 @@ class PresenterModule(private val application: Application) {
 
     @Provides
     fun providesListPresenter(): ListPresenterImpl = ListPresenterImpl()
+
+    @Provides
+    fun providesChooseCategoryPresenter(): ChooseCategoryPresenterImpl = ChooseCategoryPresenterImpl()
 
 }

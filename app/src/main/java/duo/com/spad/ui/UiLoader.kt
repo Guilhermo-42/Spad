@@ -19,6 +19,11 @@ class UiLoader {
             context.startActivity(Intent(context, activity))
         }
 
+        fun goToActivityNoStack(context: Context, activity: Class<*>) {
+            val intent = Intent(context, activity)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            context.startActivity(Intent(context, activity))
+        }
         fun goToActivityWithData(context: Context, activity: Class<*>, bundle: Bundle) {
             val intent = Intent(context, activity)
             intent.putExtras(bundle)

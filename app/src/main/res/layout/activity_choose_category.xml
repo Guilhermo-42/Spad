@@ -5,7 +5,18 @@
     android:id="@+id/chooseCategoryRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context=".flow.category.ChooseCategoryActivity">
+
+    <ProgressBar
+        android:id="@+id/chooseCategoryLoader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/chooseCategoryToolbar"
@@ -15,5 +26,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/addCategoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="21dp"
+        android:background="@null"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add_categoria"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseCategoryToolbar" />
+
+    <TextView
+        android:id="@+id/addCategoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/new_category_label"
+        android:textColor="@color/orangeLight"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/addCategoryButton"
+        app:layout_constraintStart_toEndOf="@id/addCategoryButton"
+        app:layout_constraintTop_toTopOf="@id/addCategoryButton" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/categoryList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="74dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addCategoryButton"
+        tools:listitem="@layout/category_list_item" />
 
 </android.support.constraint.ConstraintLayout>
