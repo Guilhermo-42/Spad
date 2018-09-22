@@ -5,49 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    android:padding="16dp"
     tools:background="#000"
     tools:context=".flow.list.add.AddItemActivity">
 
-    <ImageView
-        android:id="@+id/addItemBackButton"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/addItemToolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow_return"
+        android:background="@color/orangeLight"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/addItemLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:text="@string/new_iem_label"
-        android:textColor="@color/orangeGrey"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/addItemBackButton"
-        app:layout_constraintStart_toEndOf="@id/addItemBackButton"
-        app:layout_constraintTop_toTopOf="@id/addItemBackButton" />
-
-    <ImageView
-        android:id="@+id/addItemSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_confirm"
-        app:layout_constraintBottom_toBottomOf="@id/addItemLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/addItemLabel" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/titleInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/title_hint"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
         android:textColorHint="@color/hintTextColor"
         app:errorEnabled="true"
-        app:layout_constraintTop_toBottomOf="@id/addItemLabel">
+        app:layout_constraintTop_toBottomOf="@id/addItemToolbar">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/titleInputText"
@@ -64,6 +44,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="@string/description_hint"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
         android:textColorHint="@color/hintTextColor"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/priorityLabel"
@@ -86,6 +68,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
         android:text="@string/priority_label"
         android:textColor="#828282"
         android:textSize="15sp"
@@ -109,8 +93,11 @@
         android:id="@+id/priorityGroup"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:orientation="horizontal"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
         android:weightSum="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,8 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import duo.com.spad.App
 import duo.com.spad.R
@@ -59,9 +61,26 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
         UiLoader.goToActivityWithData(this, ChooseCategoryActivity::class.java, bundle)
     }
 
-    private fun setListeners() {
-        addItemBackButton.setOnClickListener { onBackPressed() }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.add_item_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                super.onBackPressed()
+            }
+            R.id.addItemConfirm -> {
+                presenter.onSaveClicked(
+                        titleInputText.text?.toString(),
+                        descriptionInputText.text?.toString())
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun setListeners() {
         lowPriorityToggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 presenter.onPriorityClicked(Priority.LOW)
@@ -82,17 +101,15 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
                 presenter.onPriorityClicked(Priority.URGENT)
             }
         }
-
-        addItemSave.setOnClickListener {
-            presenter.onSaveClicked(
-                    titleInputText.text?.toString(),
-                    descriptionInputText.text?.toString())
-        }
     }
 
     private fun setupViews() {
-        addItemBackButton.setColorFilter(ContextCompat.getColor(this, R.color.orange), PorterDuff.Mode.MULTIPLY)
-        addItemSave.setColorFilter(ContextCompat.getColor(this, R.color.greenPriority), PorterDuff.Mode.MULTIPLY)
+        setSupportActionBar(addItemToolbar)
+        supportActionBar?.let {
+            it.setHomeAsUpIndicator(R.drawable.ic_arrow_return)
+            it.setDisplayHomeAsUpEnabled(true)
+            it.title = getString(R.string.new_item_label)
+        }
 
         //TODO Remove this after icons are done
         lowPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.greenPriority), PorterDuff.Mode.MULTIPLY)

@@ -16,13 +16,7 @@ class ChooseCategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_category)
 
-        setSupportActionBar(chooseCategoryToolbar)
-        supportActionBar?.let {
-            it.setHomeAsUpIndicator(R.drawable.ic_arrow_return)
-            it.setHomeButtonEnabled(true)
-            it.setDisplayHomeAsUpEnabled(true)
-            it.title = getString(R.string.category)
-        }
+        setupToolbar()
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -32,6 +26,16 @@ class ChooseCategoryActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(chooseCategoryToolbar)
+        supportActionBar?.let {
+            it.setHomeAsUpIndicator(R.drawable.ic_arrow_return)
+            it.setHomeButtonEnabled(true)
+            it.setDisplayHomeAsUpEnabled(true)
+            it.title = getString(R.string.category)
+        }
     }
 
 }
