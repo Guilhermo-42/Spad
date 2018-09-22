@@ -13,7 +13,7 @@ class ListPresenterImpl {
 
     private var presenter: ListPresenter? = null
 
-    fun setNewPresenter(presenter: ListPresenter){
+    fun setNewPresenter(presenter: ListPresenter) {
         this.presenter = presenter
     }
 
@@ -32,9 +32,9 @@ class ListPresenterImpl {
                             if (notes != null && notes.isNotEmpty()) {
                                 presenter?.onNotesLoaded(notes)
                             } else {
-                                presenter?.onErrorLoadingNotes()
+                                presenter?.showEmptyState()
                             }
-                        } else  {
+                        } else {
                             presenter?.onErrorLoadingNotes()
                         }
                     }

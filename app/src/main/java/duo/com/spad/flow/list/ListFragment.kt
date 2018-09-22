@@ -63,10 +63,12 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     override fun onErrorLoadingNotes() {
+        listLoader.visibility = View.GONE
         Toast.makeText(requireContext(), getString(R.string.error_loading_notes), Toast.LENGTH_LONG).show()
     }
 
     override fun showEmptyState() {
+        listLoader.visibility = View.GONE
         emptyStateMessage.visibility = View.VISIBLE
         itemsRecyclerView.visibility = View.GONE
     }

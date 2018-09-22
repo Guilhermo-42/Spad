@@ -98,7 +98,8 @@ class ChooseCategoryActivity : AppCompatActivity(), ChooseCategoryPresenter {
 
     override fun onSaveSuccess() {
         chooseCategoryLoader.visibility = View.GONE
-        UiLoader.goToActivityNoStack(this, MainFlowActivity::class.java)
+        UiLoader.goToActivity(this, MainFlowActivity::class.java)
+        finishAffinity()
     }
 
     private fun setupViews() {
