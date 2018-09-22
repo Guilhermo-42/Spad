@@ -72,8 +72,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_arrow_filter"
+        app:layout_constraintBottom_toBottomOf="@id/listItemMeter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/listItemMeter" />
 
     <TextView
         android:id="@+id/filterTextLabel"
@@ -84,9 +85,9 @@
         android:text="@string/filter_button_label"
         android:textColor="@color/orangeGrey"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/filterImage"
+        app:layout_constraintBottom_toBottomOf="@id/listItemMeter"
         app:layout_constraintEnd_toStartOf="@id/filterImage"
-        app:layout_constraintTop_toTopOf="@id/filterImage" />
+        app:layout_constraintTop_toTopOf="@id/listItemMeter" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/listScreenFab"

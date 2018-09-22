@@ -57,6 +57,7 @@ class ListFragment : Fragment(), ListPresenter {
     override fun onNotesLoaded(notes: List<Note>) {
         listLoader.visibility = View.GONE
         itemsRecyclerView.visibility = View.VISIBLE
+        itemMeter.text = notes.size.toString()
         adapter.updateList(notes)
         adapter.notifyDataSetChanged()
     }
