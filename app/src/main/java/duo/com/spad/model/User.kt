@@ -4,7 +4,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseUser
 import duo.com.spad.model.note.Note
 import java.io.Serializable
-import java.util.*
 
 /**
  * @author Guilherme
@@ -22,7 +21,7 @@ data class User(
     var email: String? = null
     var photoUri: String? = null
     var type: TYPE? = null
-    var notes: LinkedList<Note>? = null
+    var notes: List<Note>? = null
 
     fun withGoogle(googleSignInAccount: GoogleSignInAccount?): User {
         this.googleSignInAccount = googleSignInAccount

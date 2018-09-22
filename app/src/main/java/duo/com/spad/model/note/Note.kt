@@ -6,15 +6,17 @@ import java.io.Serializable
  * @author Guilherme
  * @since 06/09/2018
  */
-class Note : Serializable {
+data class Note(
 
-    var title: String? = null
+        var title: String? = null,
 
-    var description: String? = null
+        var description: String? = null,
 
-    var priority: Priority? = null
+        var priority: Priority? = null,
 
-    var category: Category? = null
+        var category: Category? = null
+
+): Serializable {
 
     fun isValidWithoutCategory(): Boolean {
         return !title.isNullOrEmpty() && !description.isNullOrEmpty() && priority != null

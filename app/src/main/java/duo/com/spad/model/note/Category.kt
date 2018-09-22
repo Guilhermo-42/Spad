@@ -7,11 +7,11 @@ import java.io.Serializable
  * @author Guilherme
  * @since 08/09/2018
  */
-class Category : Serializable{
+data class Category(
 
-    var name: String? = null
+        var name: String? = null,
 
-    @DrawableRes
-    var image: Int? = null
+        @DrawableRes
+        var image: Int? = null
 
-}
+) : Serializable
