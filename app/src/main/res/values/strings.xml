@@ -32,5 +32,6 @@
     <string name="title_error_hint">Campo obrigatório!</string>
     <string name="description_error_hint">Campo obrigatório!</string>
     <string name="priority_error_hint">Campo obrigatório!</string>
+    <string name="error_loading_notes">Erro ao carregar suas notas!</string>
 
 </resources>

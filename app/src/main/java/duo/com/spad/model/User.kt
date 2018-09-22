@@ -2,7 +2,9 @@ package duo.com.spad.model
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseUser
+import duo.com.spad.model.note.Note
 import java.io.Serializable
+import java.util.*
 
 /**
  * @author Guilherme
@@ -13,13 +15,14 @@ data class User(
         @Transient
         var googleSignInAccount: GoogleSignInAccount? = null
 
-): Serializable {
+) : Serializable {
 
     var id: String? = null
     var name: String? = null
     var email: String? = null
     var photoUri: String? = null
     var type: TYPE? = null
+    var notes: LinkedList<Note>? = null
 
     fun withGoogle(googleSignInAccount: GoogleSignInAccount?): User {
         this.googleSignInAccount = googleSignInAccount
@@ -32,7 +35,7 @@ data class User(
     }
 
     fun withFirebase(currentUser: FirebaseUser?): User {
-        currentUser?.let {firebaseUser ->
+        currentUser?.let { firebaseUser ->
             this.id = firebaseUser.uid
             this.name = firebaseUser.displayName
             this.email = firebaseUser.email

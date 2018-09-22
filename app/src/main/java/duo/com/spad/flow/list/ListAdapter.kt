@@ -11,8 +11,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import duo.com.spad.R
-import duo.com.spad.model.ListItem
-import duo.com.spad.model.Priority
+import duo.com.spad.model.note.Note
+import duo.com.spad.model.note.Priority
 import kotlinx.android.synthetic.main.list_item.view.*
 import java.util.*
 
@@ -23,7 +23,7 @@ import java.util.*
 class ListAdapter(
 
         var context: Context,
-        private var itemsList: List<ListItem> = LinkedList()
+        private var itemsList: List<Note> = LinkedList()
 
 ) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
@@ -72,7 +72,7 @@ class ListAdapter(
 
     }
 
-    fun updateList(newList: List<ListItem>) {
+    fun updateList(newList: List<Note>) {
         this.itemsList = newList
     }
 

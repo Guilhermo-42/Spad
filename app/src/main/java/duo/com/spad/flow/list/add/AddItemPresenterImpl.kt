@@ -1,7 +1,7 @@
 package duo.com.spad.flow.list.add
 
-import duo.com.spad.model.ListItem
-import duo.com.spad.model.Priority
+import duo.com.spad.model.note.Note
+import duo.com.spad.model.note.Priority
 
 /**
  * @author Guilherme
@@ -9,7 +9,7 @@ import duo.com.spad.model.Priority
  */
 class AddItemPresenterImpl {
 
-    var model: ListItem = ListItem()
+    var model: Note = Note()
 
     private var presenter: AddItemPresenter? = null
 

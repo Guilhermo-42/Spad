@@ -1,4 +1,4 @@
-package duo.com.spad.model
+package duo.com.spad.model.note
 
 /**
  * @author Guilherme

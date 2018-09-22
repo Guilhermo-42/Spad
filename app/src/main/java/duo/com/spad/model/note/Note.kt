@@ -1,4 +1,4 @@
-package duo.com.spad.model
+package duo.com.spad.model.note
 
 import java.io.Serializable
 
@@ -6,7 +6,7 @@ import java.io.Serializable
  * @author Guilherme
  * @since 06/09/2018
  */
-class ListItem : Serializable {
+class Note : Serializable {
 
     var title: String? = null
 

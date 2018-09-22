@@ -8,7 +8,7 @@ import android.view.View
 import duo.com.spad.App
 import duo.com.spad.R
 import duo.com.spad.flow.category.ChooseCategoryActivity
-import duo.com.spad.model.Priority
+import duo.com.spad.model.note.Priority
 import duo.com.spad.ui.UiLoader
 import kotlinx.android.synthetic.main.activity_add_item.*
 import javax.inject.Inject

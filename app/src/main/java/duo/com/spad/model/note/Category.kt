@@ -1,4 +1,4 @@
-package duo.com.spad.model
+package duo.com.spad.model.note
 
 import android.support.annotation.DrawableRes
 import java.io.Serializable
