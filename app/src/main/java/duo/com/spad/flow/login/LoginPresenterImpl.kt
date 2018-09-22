@@ -104,6 +104,27 @@ class LoginPresenterImpl(private var context: Context) {
 
     private fun saveUserToDatabase(user: User) {
         val database = FirebaseFirestore.getInstance()
+
+        //TODO REMOVE THIS MOCK
+        user.notes = listOf(
+                Note("Nota 1",
+                        "Description text bem grandinho mesmo",
+                        Priority.LOW,
+                        Category("Comida", R.drawable.ic_default_category_family)),
+                Note("Nota 2 text",
+                        "Description text bem grandinho mesmo",
+                        Priority.HIGH,
+                        Category("Comida", R.drawable.ic_default_category_recreation)),
+                Note("Nota 3 huasuhsahusahuas",
+                        "Description text bem grandinho mesmo 12312903",
+                        Priority.MEDIUM,
+                        Category("Comida", R.drawable.ic_default_category_house)),
+                Note("Nota 4 titulo",
+                        "Description text bem grandinho mesmo",
+                        Priority.URGENT,
+                        Category("Comida", R.drawable.ic_default_category_food))
+        )
+
         user.email?.let {
             database.collection(DatabaseCollections.USERS.description)
                 .document(it)

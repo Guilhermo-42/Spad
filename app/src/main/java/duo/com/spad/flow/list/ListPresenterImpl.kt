@@ -2,7 +2,7 @@ package duo.com.spad.flow.list
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import duo.com.spad.model.note.Note
+import duo.com.spad.model.User
 import duo.com.spad.network.DatabaseCollections
 
 /**
@@ -28,7 +28,12 @@ class ListPresenterImpl {
                     .get()
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-
+                            val notes = task.result.toObject(User::class.java)?.notes
+                            if (notes != null && notes.isNotEmpty()) {
+                                presenter?.onNotesLoaded(notes)
+                            } else {
+                                presenter?.onErrorLoadingNotes()
+                            }
                         } else  {
                             presenter?.onErrorLoadingNotes()
                         }

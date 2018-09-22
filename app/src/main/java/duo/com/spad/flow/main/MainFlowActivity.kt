@@ -14,9 +14,13 @@ class MainFlowActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_list -> {
                 setupListFragment()
+                navigation.menu.getItem(0).isEnabled = false
+                navigation.menu.getItem(1).isEnabled = true
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
+                navigation.menu.getItem(0).isEnabled = true
+                navigation.menu.getItem(1).isEnabled = false
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -33,6 +37,7 @@ class MainFlowActivity : AppCompatActivity() {
     }
 
     private fun setupListFragment() {
+        navigation.menu.getItem(0).isEnabled = false
         UiLoader.loadFragmentNoBackstack(supportFragmentManager, R.id.mainContainer, ListFragment.newInstance(), ListFragment.TAG)
     }
 
