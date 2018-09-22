@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "261794809707",
+    "firebase_url": "https://spad-duo.firebaseio.com",
+    "project_id": "spad-duo",
+    "storage_bucket": "spad-duo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261794809707:android:ca56889c5c8d3fa7",
+        "android_client_info": {
+          "package_name": "duo.com.spad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261794809707-f3l6g6d2cqdjkre4pf2h2vua7io4luiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "duo.com.spad",
+            "certificate_hash": "c61a6ce5576f9954f49864640516e0056e730377"
+          }
+        },
+        {
+          "client_id": "261794809707-n3m13ilr40hvc5bhjqfkubureotgd0s1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8UcZEFtaXumnKkSFgyVNwIBNPmPVTX_k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261794809707-n3m13ilr40hvc5bhjqfkubureotgd0s1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
