@@ -57,11 +57,10 @@
         app:layout_constraintStart_toStartOf="@id/meterBackground"
         app:layout_constraintTop_toTopOf="@id/meterBackground" />
 
-    <!-- TODO Remove default size -->
     <ImageView
         android:id="@+id/filterImage"
-        android:layout_width="18dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/ic_arrow_filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,8 +74,9 @@
         android:text="@string/filter_button_label"
         android:textColor="@color/orangeGrey"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/filterImage"
         app:layout_constraintEnd_toStartOf="@id/filterImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/filterImage" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/listScreenFab"
