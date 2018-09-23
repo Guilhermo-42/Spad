@@ -63,9 +63,13 @@ class ChooseCategoryPresenterImpl {
                     .get()
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            val user = task.result.toObject(User::class.java)
-                            user?.notes = newNotes
-                            user?.let { presenter?.onTrySavesToUserFinished(it) }
+                            if (task.result.exists()) {
+                                val user = task.result.toObject(User::class.java)
+                                user?.notes = newNotes
+                                user?.let { presenter?.onTrySavesToUserFinished(it) }
+                            } else {
+                                presenter?.onSaveFailed()
+                            }
                         } else {
                             presenter?.onSaveFailed()
                         }
