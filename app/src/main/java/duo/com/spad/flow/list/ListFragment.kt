@@ -52,21 +52,21 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     override fun onLoadNotes() {
-        listLoader.visibility = View.VISIBLE
-        emptyStateMessage.visibility = View.GONE
-        itemsRecyclerView.visibility = View.GONE
+        listLoader?.visibility = View.VISIBLE
+        emptyStateMessage?.visibility = View.GONE
+        itemsRecyclerView?.visibility = View.GONE
     }
 
     override fun onNotesLoaded(notes: List<Note>) {
-        listLoader.visibility = View.GONE
-        itemsRecyclerView.visibility = View.VISIBLE
-        itemMeter.text = notes.size.toString()
+        listLoader?.visibility = View.GONE
+        itemsRecyclerView?.visibility = View.VISIBLE
+        itemMeter?.text = notes.size.toString()
         adapter.updateList(notes)
         adapter.notifyDataSetChanged()
     }
 
     override fun onErrorLoadingNotes() {
-        listLoader.visibility = View.GONE
+        listLoader?.visibility = View.GONE
         Toast.makeText(requireContext(), getString(R.string.error_loading_notes), Toast.LENGTH_LONG).show()
     }
 
@@ -84,15 +84,15 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     private fun setListeners() {
-        listScreenFab.setOnClickListener {
+        listScreenFab?.setOnClickListener {
             UiLoader.goToActivity(requireContext(), AddItemActivity::class.java)
         }
     }
 
     private fun setupList() {
         adapter.updatePresenter(this)
-        itemsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        itemsRecyclerView.adapter = adapter
+        itemsRecyclerView?.layoutManager = LinearLayoutManager(requireContext())
+        itemsRecyclerView?.adapter = adapter
     }
 
 }
