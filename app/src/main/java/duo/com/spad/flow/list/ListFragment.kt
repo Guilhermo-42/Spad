@@ -44,7 +44,10 @@ class ListFragment : Fragment(), ListPresenter {
         setupList()
 
         setListeners()
+    }
 
+    override fun onResume() {
+        super.onResume()
         presenterImpl.tryRetrieveNotes()
     }
 
@@ -68,6 +71,7 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     override fun showEmptyState() {
+        itemMeter.setText(R.string.meter_empty)
         listLoader.visibility = View.GONE
         emptyStateMessage.visibility = View.VISIBLE
         itemsRecyclerView.visibility = View.GONE

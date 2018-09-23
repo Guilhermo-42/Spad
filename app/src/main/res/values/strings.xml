@@ -33,6 +33,7 @@
     <string name="description_error_hint">Campo obrigatório!</string>
     <string name="priority_error_hint">Campo obrigatório!</string>
     <string name="error_loading_notes">Erro ao carregar suas notas!</string>
+    <string name="meter_empty">0</string>
 
     <!-- Category -->
     <string name="category">Categoria</string>
@@ -48,5 +49,6 @@
     <string name="category_save_failed">Erro, tente novamente!</string>
     <string name="categories">Categorias:</string>
     <string name="mark_all_label">Marcar todos</string>
+    <string name="error_delete_note">Erro ao deletar sua nota!</string>
 
 </resources>

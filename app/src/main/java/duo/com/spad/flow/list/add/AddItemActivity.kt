@@ -1,12 +1,11 @@
 package duo.com.spad.flow.list.add
 
-import android.graphics.PorterDuff
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import duo.com.spad.App
 import duo.com.spad.R
 import duo.com.spad.flow.category.ChooseCategoryActivity
@@ -79,8 +78,17 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
         urgentPriorityToggle.isChecked = note.priority == Priority.URGENT
     }
 
+    override fun onErrorDeletingNote() {
+        Toast.makeText(this, getString(R.string.error_delete_note), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDeleteSuccessful() {
+        finish()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.add_item_menu, menu)
+        menu?.findItem(R.id.eraseItem)?.isVisible = note != null
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -93,6 +101,9 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
                 presenter.onSaveClicked(
                         titleInputText.text?.toString(),
                         descriptionInputText.text?.toString())
+            }
+            R.id.eraseItem -> {
+                note?.let { presenter.deleteNote(it) }
             }
         }
         return super.onOptionsItemSelected(item)

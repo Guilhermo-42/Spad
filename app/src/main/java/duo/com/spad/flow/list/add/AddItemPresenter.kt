@@ -18,4 +18,8 @@ interface AddItemPresenter {
 
     fun onNoteReceived(note: Note)
 
+    fun onErrorDeletingNote()
+
+    fun onDeleteSuccessful()
+
 }
