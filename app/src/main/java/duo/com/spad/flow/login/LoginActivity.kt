@@ -74,7 +74,6 @@ class LoginActivity : AppCompatActivity(), LoginPresenter {
         loginLoadingBar.visibility = View.GONE
     }
 
-
     private fun initializeViews() {
         googleSignInButton.setSize(SignInButton.SIZE_STANDARD)
     }

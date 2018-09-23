@@ -10,6 +10,7 @@ import android.view.View
 import duo.com.spad.App
 import duo.com.spad.R
 import duo.com.spad.flow.category.ChooseCategoryActivity
+import duo.com.spad.model.note.Note
 import duo.com.spad.model.note.Priority
 import duo.com.spad.ui.UiLoader
 import kotlinx.android.synthetic.main.activity_add_item.*
@@ -17,11 +18,19 @@ import javax.inject.Inject
 
 class AddItemActivity : AppCompatActivity(), AddItemPresenter {
 
+    companion object {
+        const val NOTE_EXTRA = "Note Extra"
+    }
+
     @Inject
     lateinit var presenter: AddItemPresenterImpl
 
     init {
         App.getPresenterComponent().inject(this)
+    }
+
+    private val note: Note? by lazy {
+        intent.extras?.getSerializable(NOTE_EXTRA) as? Note
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +68,15 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
         val bundle = Bundle()
         bundle.putSerializable(ChooseCategoryActivity.NOTE, presenter.model)
         UiLoader.goToActivityWithData(this, ChooseCategoryActivity::class.java, bundle)
+    }
+
+    override fun onNoteReceived(note: Note) {
+        descriptionInputText.setText(note.description)
+        titleInputText.setText(note.title)
+        lowPriorityToggle.isChecked = note.priority == Priority.LOW
+        mediumPriorityToggle.isChecked = note.priority == Priority.MEDIUM
+        highPriorityToggle.isChecked = note.priority == Priority.HIGH
+        urgentPriorityToggle.isChecked = note.priority == Priority.URGENT
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -104,12 +122,8 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
     }
 
     private fun setupViews() {
-        setSupportActionBar(addItemToolbar)
-        supportActionBar?.let {
-            it.setHomeAsUpIndicator(R.drawable.ic_arrow_return)
-            it.setDisplayHomeAsUpEnabled(true)
-            it.title = getString(R.string.new_item_label)
-        }
+        setupActionBar()
+        note?.let { presenter.onNoteReceived(it) }
 
         //TODO Remove this after icons are done
         lowPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.greenPriority), PorterDuff.Mode.MULTIPLY)
@@ -117,6 +131,15 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
         highPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.orangePriority), PorterDuff.Mode.MULTIPLY)
         urgentPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.redPriority), PorterDuff.Mode.MULTIPLY)
 
+    }
+
+    private fun setupActionBar() {
+        setSupportActionBar(addItemToolbar)
+        supportActionBar?.let {
+            it.setHomeAsUpIndicator(R.drawable.ic_arrow_return)
+            it.setDisplayHomeAsUpEnabled(true)
+            it.title = getString(R.string.new_item_label)
+        }
     }
 
 }

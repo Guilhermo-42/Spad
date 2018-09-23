@@ -44,4 +44,9 @@ class AddItemPresenterImpl {
 
     }
 
+    fun onNoteReceived(note: Note) {
+        this.model = note
+        presenter?.onNoteReceived(model)
+    }
+
 }

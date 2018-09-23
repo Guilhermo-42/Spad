@@ -14,9 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import duo.com.spad.R
 import duo.com.spad.model.User
 import duo.com.spad.model.database.DatabaseUser
-import duo.com.spad.model.note.Category
-import duo.com.spad.model.note.Note
-import duo.com.spad.model.note.Priority
 import duo.com.spad.network.DatabaseCollections
 
 /**

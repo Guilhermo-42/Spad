@@ -88,6 +88,7 @@ class ChooseCategoryActivity : AppCompatActivity(), ChooseCategoryPresenter {
         Toast.makeText(this, getString(R.string.category_save_failed), Toast.LENGTH_SHORT).show()
     }
 
+    @Synchronized
     override fun onGetAllNotesSuccess(notes: MutableList<Note>) {
         presenter.trySavesToUser(notes)
     }

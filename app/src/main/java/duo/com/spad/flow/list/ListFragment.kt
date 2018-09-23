@@ -73,6 +73,12 @@ class ListFragment : Fragment(), ListPresenter {
         itemsRecyclerView.visibility = View.GONE
     }
 
+    override fun onNotePressed(note: Note) {
+        val bundle = Bundle()
+        bundle.putSerializable(AddItemActivity.NOTE_EXTRA, note)
+        UiLoader.goToActivityWithData(requireContext(), AddItemActivity::class.java, bundle)
+    }
+
     private fun setListeners() {
         listScreenFab.setOnClickListener {
             UiLoader.goToActivity(requireContext(), AddItemActivity::class.java)
@@ -80,6 +86,7 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     private fun setupList() {
+        adapter.updatePresenter(this)
         itemsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         itemsRecyclerView.adapter = adapter
     }
