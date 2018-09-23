@@ -83,6 +83,9 @@ class ListFragment : Fragment(), ListPresenter {
         listScreenFab.setOnClickListener {
             UiLoader.goToActivity(requireContext(), AddItemActivity::class.java)
         }
+        filterTextLabel.setOnClickListener {
+
+        }
     }
 
     private fun setupList() {

@@ -124,13 +124,6 @@ class AddItemActivity : AppCompatActivity(), AddItemPresenter {
     private fun setupViews() {
         setupActionBar()
         note?.let { presenter.onNoteReceived(it) }
-
-        //TODO Remove this after icons are done
-        lowPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.greenPriority), PorterDuff.Mode.MULTIPLY)
-        mediumPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.yellowPriority), PorterDuff.Mode.MULTIPLY)
-        highPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.orangePriority), PorterDuff.Mode.MULTIPLY)
-        urgentPriorityToggle.buttonDrawable.setColorFilter(ContextCompat.getColor(this, R.color.redPriority), PorterDuff.Mode.MULTIPLY)
-
     }
 
     private fun setupActionBar() {

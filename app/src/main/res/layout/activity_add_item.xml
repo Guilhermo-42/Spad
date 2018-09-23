@@ -103,13 +103,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- TODO remove all bg after icons are done -->
         <RadioButton
             android:id="@+id/lowPriorityToggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/priority_bg"
+            android:button="@drawable/low_priority_radio_bg"
             android:text="@string/low_priority"
             android:textAlignment="center"
             android:textColor="@color/priorityTextColor" />
@@ -119,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/priority_bg"
+            android:button="@drawable/medium_priority_radio_bg"
             android:text="@string/medium_priority"
             android:textAlignment="center"
             android:textColor="@color/priorityTextColor" />
@@ -129,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/priority_bg"
+            android:button="@drawable/high_priority_radio_bg"
             android:text="@string/high_priority"
             android:textAlignment="center"
             android:textColor="@color/priorityTextColor" />
@@ -139,7 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/priority_bg"
+            android:button="@drawable/urgent_priority_radio_bg"
             android:text="@string/urgent_priority"
             android:textAlignment="center"
             android:textColor="@color/priorityTextColor" />
