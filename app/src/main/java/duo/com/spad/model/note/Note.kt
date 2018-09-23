@@ -8,6 +8,8 @@ import java.io.Serializable
  */
 data class Note(
 
+        var id: Int? = null,
+
         var title: String? = null,
 
         var description: String? = null,

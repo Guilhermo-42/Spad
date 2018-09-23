@@ -16,4 +16,6 @@ interface ListPresenter {
 
     fun showEmptyState()
 
+    fun onNotePressed(note: Note)
+
 }

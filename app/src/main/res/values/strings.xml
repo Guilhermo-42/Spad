@@ -24,7 +24,7 @@
     <string name="new_item_label">Novo item</string>
     <string name="title_hint">Título</string>
     <string name="description_hint">Descrição</string>
-    <string name="priority_label">Prioridade</string>
+    <string name="priority_label">Prioridade:</string>
     <string name="low_priority">Baixa</string>
     <string name="medium_priority">Média</string>
     <string name="high_priority">Alta</string>
@@ -33,6 +33,7 @@
     <string name="description_error_hint">Campo obrigatório!</string>
     <string name="priority_error_hint">Campo obrigatório!</string>
     <string name="error_loading_notes">Erro ao carregar suas notas!</string>
+    <string name="meter_empty">0</string>
 
     <!-- Category -->
     <string name="category">Categoria</string>
@@ -46,5 +47,8 @@
     <string name="default_category_food">Comida</string>
     <string name="category_needed">Selecione uma categoria</string>
     <string name="category_save_failed">Erro, tente novamente!</string>
+    <string name="categories">Categorias:</string>
+    <string name="mark_all_label">Marcar todos</string>
+    <string name="error_delete_note">Erro ao deletar sua nota!</string>
 
 </resources>

@@ -8,4 +8,10 @@
         android:title="@string/new_item_label"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/eraseItem"
+        android:icon="@drawable/ic_delet"
+        android:title="@string/new_item_label"
+        app:showAsAction="ifRoom" />
+
 </menu>

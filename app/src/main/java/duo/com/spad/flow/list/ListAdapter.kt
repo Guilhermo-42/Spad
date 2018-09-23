@@ -27,6 +27,8 @@ class ListAdapter(
 
 ) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
+    private var presenter: ListPresenter? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
             ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false))
 
@@ -38,6 +40,10 @@ class ListAdapter(
         holder.title.text = item.title
         holder.description.text = item.description
         item.category?.image?.let { holder.image.setImageResource(it) }
+
+        holder.itemView.setOnClickListener {
+            presenter?.onNotePressed(item)
+        }
 
         when (item.priority) {
             Priority.LOW -> {
@@ -69,7 +75,10 @@ class ListAdapter(
                 holder.bordersBackground.setColorFilter(redColor, PorterDuff.Mode.MULTIPLY)
             }
         }
+    }
 
+    fun updatePresenter(presenter: ListPresenter) {
+        this.presenter = presenter
     }
 
     fun updateList(newList: List<Note>) {

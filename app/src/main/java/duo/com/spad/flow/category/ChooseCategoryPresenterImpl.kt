@@ -63,9 +63,13 @@ class ChooseCategoryPresenterImpl {
                     .get()
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            val user = task.result.toObject(User::class.java)
-                            user?.notes = newNotes
-                            user?.let { presenter?.onTrySavesToUserFinished(it) }
+                            if (task.result.exists()) {
+                                val user = task.result.toObject(User::class.java)
+                                user?.notes = newNotes
+                                user?.let { presenter?.onTrySavesToUserFinished(it) }
+                            } else {
+                                presenter?.onSaveFailed()
+                            }
                         } else {
                             presenter?.onSaveFailed()
                         }
@@ -73,9 +77,9 @@ class ChooseCategoryPresenterImpl {
         }
     }
 
+    @Synchronized
     fun tryGetAllNotes(newNote: Note) {
         val database = FirebaseFirestore.getInstance()
-        var notes: MutableList<Note>
 
         FirebaseAuth.getInstance().currentUser?.email?.let { userEmail ->
             database.collection(DatabaseCollections.USERS.description)
@@ -83,14 +87,41 @@ class ChooseCategoryPresenterImpl {
                     .get()
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            notes = task.result.toObject(User::class.java)?.notes?.toMutableList() ?: mutableListOf()
-                            notes.add(newNote)
-                            presenter?.onGetAllNotesSuccess(notes)
+                            val notes = task.result.toObject(User::class.java)?.notes ?: listOf()
+                            val newNotes = setupList(notes, newNote)
+                            presenter?.onGetAllNotesSuccess(newNotes)
                         } else {
                             presenter?.onSaveFailed()
                         }
                     }
         }
+    }
+
+    @Synchronized
+    private fun setupList(oldNotes: List<Note>, newNote: Note): MutableList<Note> {
+        val newNotes = mutableListOf<Note>()
+
+        if (oldNotes.isEmpty()) {
+            newNote.id = 0
+            newNotes.add(newNote)
+            return newNotes
+        } else {
+            newNotes.addAll(oldNotes)
+
+            synchronized(newNotes) {
+                oldNotes.forEach { currentNote ->
+                    if (currentNote.id == newNote.id) {
+                        newNotes[oldNotes.indexOf(currentNote)] = newNote
+                        return newNotes
+                    }
+                }
+            }
+        }
+
+        newNote.id = oldNotes.lastIndex + 1
+        newNotes.add(newNote)
+
+        return newNotes
     }
 
     fun updateUser(user: User) {
@@ -99,10 +130,10 @@ class ChooseCategoryPresenterImpl {
                     .collection(DatabaseCollections.USERS.description)
                     .document(it)
                     .set(user)
-                    .addOnCompleteListener{ task ->
+                    .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             presenter?.onSaveSuccess()
-                        } else  {
+                        } else {
                             presenter?.onSaveFailed()
                         }
                     }

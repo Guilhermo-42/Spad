@@ -44,7 +44,10 @@ class ListFragment : Fragment(), ListPresenter {
         setupList()
 
         setListeners()
+    }
 
+    override fun onResume() {
+        super.onResume()
         presenterImpl.tryRetrieveNotes()
     }
 
@@ -68,9 +71,16 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     override fun showEmptyState() {
+        itemMeter.setText(R.string.meter_empty)
         listLoader.visibility = View.GONE
         emptyStateMessage.visibility = View.VISIBLE
         itemsRecyclerView.visibility = View.GONE
+    }
+
+    override fun onNotePressed(note: Note) {
+        val bundle = Bundle()
+        bundle.putSerializable(AddItemActivity.NOTE_EXTRA, note)
+        UiLoader.goToActivityWithData(requireContext(), AddItemActivity::class.java, bundle)
     }
 
     private fun setListeners() {
@@ -80,6 +90,7 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     private fun setupList() {
+        adapter.updatePresenter(this)
         itemsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         itemsRecyclerView.adapter = adapter
     }
