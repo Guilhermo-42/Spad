@@ -71,10 +71,10 @@ class ListFragment : Fragment(), ListPresenter {
     }
 
     override fun showEmptyState() {
-        itemMeter.setText(R.string.meter_empty)
-        listLoader.visibility = View.GONE
-        emptyStateMessage.visibility = View.VISIBLE
-        itemsRecyclerView.visibility = View.GONE
+        itemMeter?.setText(R.string.meter_empty)
+        listLoader?.visibility = View.GONE
+        emptyStateMessage?.visibility = View.VISIBLE
+        itemsRecyclerView?.visibility = View.GONE
     }
 
     override fun onNotePressed(note: Note) {
