@@ -33,18 +33,21 @@
         <!-- Login Activity -->
         <activity
             android:name=".flow.login.LoginActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <!-- Add Item Activity -->
         <activity
             android:name=".flow.list.add.AddItemActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <!-- Choose Category Activity -->
         <activity
             android:name=".flow.category.ChooseCategoryActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 

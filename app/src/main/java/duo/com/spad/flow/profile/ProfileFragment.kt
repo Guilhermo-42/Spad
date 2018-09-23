@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import duo.com.spad.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-
 class ProfileFragment : Fragment() {
 
     companion object {
@@ -33,12 +32,14 @@ class ProfileFragment : Fragment() {
         FirebaseAuth.getInstance()
                 .currentUser
                 ?.let {
-                    profileNameText.text = it.displayName
+                    profileNameText?.text = it.displayName
 
-                    Glide.with(requireContext())
-                            .load(it.photoUrl)
-                            .apply(RequestOptions.circleCropTransform())
-                            .into(profilePhoto)
+                    profilePhoto?.let { image ->
+                        Glide.with(requireContext())
+                                .load(it.photoUrl)
+                                .apply(RequestOptions.circleCropTransform())
+                                .into(image)
+                    }
                 }
     }
 
