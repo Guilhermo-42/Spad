@@ -26,7 +26,6 @@ class LoginActivityInstrumentedTest {
     fun click_on_sign_in_button_calls_login_screen() {
         onView(withId(R.id.googleSignInButton))
                 .perform(click())
-                .inRoot(RootMatchers.isDialog())
     }
 
 }
