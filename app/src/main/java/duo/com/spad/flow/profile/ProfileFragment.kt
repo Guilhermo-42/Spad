@@ -22,7 +22,7 @@ class ProfileFragment : Fragment(), ProfilePresenter {
     }
 
     @Inject
-    private lateinit var presenter: ProfilePresenterImpl
+    lateinit var presenter: ProfilePresenterImpl
 
     init {
         App.getPresenterComponent().inject(this)
