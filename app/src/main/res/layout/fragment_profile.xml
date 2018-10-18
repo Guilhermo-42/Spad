@@ -8,6 +8,15 @@
     android:background="#fff"
     tools:context=".flow.profile.ProfileFragment">
 
+    <ProgressBar
+        android:id="@+id/imageProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/profilePhoto"
+        app:layout_constraintEnd_toEndOf="@id/profilePhoto"
+        app:layout_constraintStart_toStartOf="@id/profilePhoto"
+        app:layout_constraintTop_toTopOf="@id/profilePhoto" />
+
     <android.support.constraint.Guideline
         android:id="@+id/separator"
         android:layout_width="wrap_content"
@@ -41,13 +50,25 @@
         android:id="@+id/profileNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/profileBg"
         app:layout_constraintEnd_toEndOf="@id/profilePhoto"
         app:layout_constraintStart_toStartOf="@id/profilePhoto"
         app:layout_constraintTop_toBottomOf="@+id/profilePhoto" />
+
+    <TextView
+        android:id="@+id/logoutText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:padding="20dp"
+        android:text="@string/logout_text"
+        android:textColor="@color/redPriority"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/profileBg" />
 
 </android.support.constraint.ConstraintLayout>
