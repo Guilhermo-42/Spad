@@ -8,6 +8,7 @@ import duo.com.spad.flow.category.ChooseCategoryPresenterImpl
 import duo.com.spad.flow.list.ListPresenterImpl
 import duo.com.spad.flow.list.add.AddItemPresenterImpl
 import duo.com.spad.flow.login.LoginPresenterImpl
+import duo.com.spad.flow.profile.ProfilePresenterImpl
 import javax.inject.Singleton
 
 /**
@@ -34,5 +35,8 @@ class PresenterModule(private val application: Application) {
 
     @Provides
     fun providesChooseCategoryPresenter(): ChooseCategoryPresenterImpl = ChooseCategoryPresenterImpl()
+
+    @Provides
+    fun providesProfilePresenter(context: Context): ProfilePresenterImpl = ProfilePresenterImpl(context)
 
 }

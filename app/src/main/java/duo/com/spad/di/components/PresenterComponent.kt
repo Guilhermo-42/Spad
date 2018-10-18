@@ -7,6 +7,7 @@ import duo.com.spad.flow.category.ChooseCategoryActivity
 import duo.com.spad.flow.list.ListFragment
 import duo.com.spad.flow.list.add.AddItemActivity
 import duo.com.spad.flow.login.LoginActivity
+import duo.com.spad.flow.profile.ProfileFragment
 import duo.com.spad.flow.splash.SplashScreenActivity
 import javax.inject.Singleton
 
@@ -26,5 +27,6 @@ interface PresenterComponent {
     fun inject(addItemActivity: AddItemActivity)
     fun inject(listFragment: ListFragment)
     fun inject(chooseCategoryActivity: ChooseCategoryActivity)
+    fun inject(profileFragment: ProfileFragment)
 
 }
