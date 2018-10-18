@@ -19,4 +19,6 @@ interface ProfilePresenter {
 
     fun onLogoutSuccess()
 
+    fun onLogoutError()
+
 }

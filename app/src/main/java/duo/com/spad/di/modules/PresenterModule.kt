@@ -37,6 +37,6 @@ class PresenterModule(private val application: Application) {
     fun providesChooseCategoryPresenter(): ChooseCategoryPresenterImpl = ChooseCategoryPresenterImpl()
 
     @Provides
-    fun providesProfilePresenter(): ProfilePresenterImpl = ProfilePresenterImpl()
+    fun providesProfilePresenter(context: Context): ProfilePresenterImpl = ProfilePresenterImpl(context)
 
 }

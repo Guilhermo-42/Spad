@@ -51,5 +51,6 @@
     <string name="mark_all_label">Marcar todos</string>
     <string name="error_delete_note">Erro ao deletar sua nota!</string>
     <string name="logout_text">Sair</string>
+    <string name="logout_error_text">Erro ao sair, tente novamente!</string>
 
 </resources>

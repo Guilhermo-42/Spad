@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.RequestBuilder
 import duo.com.spad.App
 import duo.com.spad.R
@@ -36,9 +37,8 @@ class ProfileFragment : Fragment(), ProfilePresenter {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.setNewPresenter(this)
-        requireContext().let {
-            presenter.tryRetrieveUser(it)
-        }
+        presenter.configureGoogleSignIn()
+        requireContext().let { presenter.tryRetrieveUser() }
 
         setListeners()
     }
@@ -66,6 +66,12 @@ class ProfileFragment : Fragment(), ProfilePresenter {
         requireActivity().let {
             UiLoader.goToActivity(it, LoginActivity::class.java)
             it.finishAffinity()
+        }
+    }
+
+    override fun onLogoutError() {
+        requireContext().let {
+            Toast.makeText(it, R.string.logout_error_text, Toast.LENGTH_LONG).show()
         }
     }
 
